@@ -1,0 +1,33 @@
+<select
+  class="my-3 rounded"
+  (change)="change(selecteElement.value)"
+  #selecteElement
+  style="width: 10rem; height: 2rem"
+>
+  <option [value]="category.id" *ngFor="let category of categoryList">
+    {{ category.name }}
+  </option>
+</select>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Image</th>
+      <th scope="col">#Items</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <tr *ngFor="let product of filteredList; let i = index">
+        <th scope="row">{{ i+1 }}</th>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td><img [src]="product.imgURL" alt="" /></td>
+        <td><input type="number" style="width: 3rem" /></td>
+      </tr>
+    
+  </tbody>
+</table>
